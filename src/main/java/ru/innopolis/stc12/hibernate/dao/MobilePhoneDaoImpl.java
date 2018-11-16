@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.innopolis.stc12.hibernate.dao.entities.MobilePhone;
 
 import java.util.List;
@@ -19,32 +20,26 @@ public class MobilePhoneDaoImpl implements MobilePhoneDao {
     }
 
     @Override
+    @Transactional
     public MobilePhone getPhoneById(Long id) {
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        MobilePhone phone = (MobilePhone) session.get(MobilePhone.class, id);
-        session.close();
-        return phone;
+        Session session = sessionFactory.getCurrentSession();
+        return (MobilePhone) session.get(MobilePhone.class, id);
     }
 
     @Override
+    @Transactional    
     public List<MobilePhone> getPhonesList() {
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
+        Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(MobilePhone.class);
         List<MobilePhone> phones = criteria.list();
-        session.close();
         return phones;
     }
 
     @Override
+    @Transactional    
     public void addPhone(MobilePhone phone) {
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
+        Session session = sessionFactory.getCurrentSession();
         session.save(phone);
         phone.setCost(20000);
-        session.getTransaction().commit();
-        session.close();
-
     }
 }

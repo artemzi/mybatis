@@ -27,6 +27,12 @@ public class MobilePhone {
         this.certificate = certificate;
     }
 
+    public MobilePhone(String model, int cost, String recense) {
+        this.model = model;
+        this.cost = cost;
+        this.recense = recense;
+    }
+
     @Id
     @Column(name = "mobile_id")
     @SequenceGenerator(name = "hibernateSeq", sequenceName = "mobile_squence")
@@ -70,6 +76,10 @@ public class MobilePhone {
 
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    public void addDeal(Deal deal) {
+        deals.add(deal);
     }
 
     @OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
