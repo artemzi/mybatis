@@ -10,7 +10,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>WEB-INF/database.xml</param-value>
+        <param-value>/WEB-INF/mybatis-context.xml</param-value>
     </context-param>
 
     <servlet>
@@ -27,6 +27,4 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
-
 </web-app>

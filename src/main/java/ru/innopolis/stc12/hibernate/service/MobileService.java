@@ -1,17 +1,17 @@
 package ru.innopolis.stc12.hibernate.service;
 
-import ru.innopolis.stc12.hibernate.dao.entities.Manufacturer;
-import ru.innopolis.stc12.hibernate.dao.entities.MobilePhone;
+import ru.innopolis.stc12.hibernate.dao.dto.Mobile;
 
 import java.util.List;
 
 public interface MobileService {
-    MobilePhone getMobilePhone(Long id);
+    Mobile getMobile(Integer mobileId);
 
-    List<MobilePhone> getMobileList();
+    void insertMobile(Mobile mobile);
 
-    void addPhone(Long id, String model, Integer cost);
+    List<Mobile> getAllMobiles();
 
-    List<Manufacturer> getManufacturers();
+    void updateMobile(Mobile mobile);
 
+    void deleteMobile(Integer mobileId);
 }

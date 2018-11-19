@@ -11,8 +11,10 @@
     <title>$Title$</title>
 </head>
 <body>
-<a href="/manufacturersList">manufacturers</a><br>
-<a href="/addPhone">Add phone</a><br>
-<a href="/phoneList">PhoneList</a>
+<a href="/getByID">Get by id</a><br>
+<a href="/getAll">Get all by id</a><br>
+<a href="/addPhone">addPhone</a><br>
+<a href="/updatePhone">update phone</a>
+<a href="/deletePhone">delete phone</a>
 </body>
 </html>
