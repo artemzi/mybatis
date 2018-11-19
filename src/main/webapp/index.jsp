@@ -11,7 +11,7 @@
     <title>$Title$</title>
 </head>
 <body>
-<a href="/addManufacturer">Add manufacturer</a><br>
+<a href="/manufacturersList">manufacturers</a><br>
 <a href="/addPhone">Add phone</a><br>
 <a href="/phoneList">PhoneList</a>
 </body>

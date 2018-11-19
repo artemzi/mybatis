@@ -2,6 +2,7 @@ package ru.innopolis.stc12.hibernate.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.innopolis.stc12.hibernate.dao.MobilePhoneDao;
 import ru.innopolis.stc12.hibernate.dao.entities.Certificate;
 import ru.innopolis.stc12.hibernate.dao.entities.Manufacturer;
@@ -10,6 +11,7 @@ import ru.innopolis.stc12.hibernate.dao.entities.MobilePhone;
 import java.util.List;
 
 @Service
+@Transactional
 public class MobileServiceImpl implements MobileService {
     private MobilePhoneDao mobilePhoneDao;
 
@@ -36,5 +38,18 @@ public class MobileServiceImpl implements MobileService {
                 new Certificate("12121212", null));
         mobilePhone.getCertificate().setPhone(mobilePhone);
         mobilePhoneDao.addPhone(mobilePhone);
+    }
+
+    @Override
+    public List<Manufacturer> getManufacturers() {
+        List<Manufacturer> manufacturers = mobilePhoneDao.getManufacturers();
+        for (Manufacturer manufacturer : manufacturers) {
+            Integer count = 0;
+            for (MobilePhone phone : manufacturer.getPhones()) {
+                count++;
+            }
+            manufacturer.setModelCount(count);
+        }
+        return manufacturers;
     }
 }

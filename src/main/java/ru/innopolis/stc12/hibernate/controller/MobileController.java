@@ -27,4 +27,10 @@ public class MobileController {
         mobileService.addPhone(1L, "Some phone3", 114000);
         return showPhoneList(model);
     }
+
+    @RequestMapping(value = "/manufacturersList", method = RequestMethod.GET)
+    public String showManufacturers(Model model) {
+        model.addAttribute("manufacturers", mobileService.getManufacturers());
+        return "manufacturersList";
+    }
 }

@@ -91,7 +91,7 @@ public class MobilePhone {
         this.certificate = certificate;
     }
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "deals_mobiles",
             joinColumns = @JoinColumn(name = "phone_id"),
             inverseJoinColumns = @JoinColumn(name = "deal_id"))

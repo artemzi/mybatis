@@ -11,6 +11,7 @@ public class Manufacturer {
     private String name;
     private String country;
     private List<MobilePhone> phones = new ArrayList<>();
+    private Integer modelCount;
 
     public Manufacturer() {
     }
@@ -53,5 +54,14 @@ public class Manufacturer {
 
     public void setPhones(List<MobilePhone> phones) {
         this.phones = phones;
+    }
+
+    @Transient
+    public Integer getModelCount() {
+        return modelCount;
+    }
+
+    public void setModelCount(Integer modelCount) {
+        this.modelCount = modelCount;
     }
 }
