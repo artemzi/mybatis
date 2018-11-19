@@ -8,7 +8,7 @@
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="jdbc:postgresql://localhost:5432/mobile"/>
         <property name="username" value="postgres"/>
-        <property name="password" value="sa"/>
+        <property name="password" value="secret"/>
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -17,6 +17,11 @@
 
     <bean id="mobileMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="ru.innopolis.stc12.hibernate.dao.MobileMapper"/>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+    <bean id="ownerMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="ru.innopolis.stc12.hibernate.dao.OwnerMapper"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 </beans>
